@@ -556,116 +556,129 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="navbar-brand">Medical Front Office</div>
-      <!-- FORM ISCRIZIONE -->
-<div style="background:#fff; border-radius:16px; padding:40px; max-width:560px; margin:0 auto; box-shadow:0 4px 24px rgba(0,0,0,0.10);">
-  <h3 style="color:#1a1a2e; font-size:1.4rem; margin-bottom:24px; text-align:center;">
-    📩 Prenota il tuo posto
-  </h3>
+  <!-- NAVBAR -->
+<nav class="navbar">
+    <div class="navbar-brand">Medical Front Office</div>
+</nav>
 
-  <form action="https://formspree.io/f/mdardgeq" method="POST">
-
-    <!-- NOME -->
-    <div style="margin-bottom:16px;">
-      <label style="display:block; font-weight:600; margin-bottom:6px; color:#1a1a2e;">
-        Nome e Cognome *
-      </label>
-      <input 
-        type="text" 
-        name="nome" 
-        required 
-        placeholder="Es. Maria Rossi"
-        style="width:100%; padding:12px 16px; border:2px solid #e0e0e0; border-radius:8px; font-size:1rem; box-sizing:border-box;">
-    </div>
-
-    <!-- EMAIL -->
-    <div style="margin-bottom:16px;">
-      <label style="display:block; font-weight:600; margin-bottom:6px; color:#1a1a2e;">
-        Email *
-      </label>
-      <input 
-        type="email" 
-        name="email" 
-        required 
-        placeholder="Es. maria@email.com"
-        style="width:100%; padding:12px 16px; border:2px solid #e0e0e0; border-radius:8px; font-size:1rem; box-sizing:border-box;">
-    </div>
-
-    <!-- TELEFONO -->
-    <div style="margin-bottom:16px;">
-      <label style="display:block; font-weight:600; margin-bottom:6px; color:#1a1a2e;">
-        Telefono *
-      </label>
-      <input 
-        type="tel" 
-        name="telefono" 
-        required 
-        placeholder="Es. 333 1234567"
-        style="width:100%; padding:12px 16px; border:2px solid #e0e0e0; border-radius:8px; font-size:1rem; box-sizing:border-box;">
-    </div>
-
-    <!-- OPZIONE PAGAMENTO -->
-    <div style="margin-bottom:16px;">
-      <label style="display:block; font-weight:600; margin-bottom:6px; color:#1a1a2e;">
-        Come vuoi pagare? *
-      </label>
-      <select 
-        name="pagamento" 
-        required
-        style="width:100%; padding:12px 16px; border:2px solid #e0e0e0; border-radius:8px; font-size:1rem; box-sizing:border-box; background:#fff;">
-        <option value="">-- Seleziona --</option>
-        <option value="unica">Soluzione unica (797€ + IVA)</option>
-        <option value="early_bird">Early Bird entro [DATA] (697€ + IVA)</option>
-        <option value="coppia">Sconto coppia (697€ + IVA a persona)</option>
-        <option value="rata">Rateizzato (2 rate)</option>
-      </select>
-    </div>
-
-    <!-- CHECKBOX PRIVACY -->
-    <div style="margin-bottom:12px; display:flex; align-items:flex-start; gap:10px;">
-      <input 
-        type="checkbox" 
-        name="privacy" 
-        id="privacy"
-        required
-        style="margin-top:4px; width:18px; height:18px; cursor:pointer;">
-      <label for="privacy" style="font-size:0.9rem; color:#444; line-height:1.5;">
-        Ho letto e accetto la 
-        <a href="privacy.html" target="_blank" style="color:#c9a84c; font-weight:600;">Privacy Policy</a> *
-      </label>
-    </div>
-
-    <!-- CHECKBOX TERMINI -->
-    <div style="margin-bottom:24px; display:flex; align-items:flex-start; gap:10px;">
-      <input 
-        type="checkbox" 
-        name="termini" 
-        id="termini"
-        required
-        style="margin-top:4px; width:18px; height:18px; cursor:pointer;">
-      <label for="termini" style="font-size:0.9rem; color:#444; line-height:1.5;">
-        Ho letto e accetto i 
-        <a href="termini.html" target="_blank" style="color:#c9a84c; font-weight:600;">Termini & Condizioni</a> 
-        inclusa la politica di rimborso *
-      </label>
-    </div>
-
-    <!-- BOTTONE INVIO -->
-    <button 
-      type="submit"
-      style="width:100%; padding:16px; background:linear-gradient(135deg, #c9a84c, #f0d080); color:#1a1a2e; font-size:1.1rem; font-weight:700; border:none; border-radius:8px; cursor:pointer; letter-spacing:1px;">
-      ✅ INVIA LA MIA ISCRIZIONE
-    </button>
-
-    <p style="text-align:center; font-size:0.85rem; color:#888; margin-top:12px;">
-      Riceverai una email di conferma entro 24 ore
+<!-- FORM ISCRIZIONE -->
+<section id="iscrizione" style="background:#F8F9FA; padding:80px 20px;">
+  <div style="text-align:center; margin-bottom:40px;">
+    <p style="font-size:11px; letter-spacing:3px; text-transform:uppercase; color:#D4AC0D; font-weight:700; margin-bottom:12px;">PRENOTA IL TUO POSTO</p>
+    <h2 style="font-family:'Playfair Display', serif; font-size:clamp(28px,4vw,44px); color:#1A5276; line-height:1.3;">
+      Inizia il tuo percorso
+    </h2>
+    <p style="font-size:17px; color:#555; max-width:600px; margin:16px auto 0;">
+      I posti sono limitati a <strong>20–25 partecipanti</strong>. Compila il modulo e riceverai conferma entro 24 ore.
     </p>
+  </div>
 
-  </form>
-</div>
-    </nav>
+  <div style="background:#fff; border-radius:16px; padding:40px; max-width:560px; margin:0 auto; box-shadow:0 4px 24px rgba(0,0,0,0.10);">
+    <h3 style="color:#1A5276; font-size:1.4rem; margin-bottom:24px; text-align:center;">
+      📩 Prenota il tuo posto
+    </h3>
+
+    <form action="https://formspree.io/f/mdardgeq" method="POST">
+
+      <!-- NOME -->
+      <div style="margin-bottom:16px;">
+        <label style="display:block; font-weight:600; margin-bottom:6px; color:#1A5276;">
+          Nome e Cognome *
+        </label>
+        <input 
+          type="text" 
+          name="nome" 
+          required 
+          placeholder="Es. Maria Rossi"
+          style="width:100%; padding:12px 16px; border:2px solid #e0e0e0; border-radius:8px; font-size:1rem; box-sizing:border-box;">
+      </div>
+
+      <!-- EMAIL -->
+      <div style="margin-bottom:16px;">
+        <label style="display:block; font-weight:600; margin-bottom:6px; color:#1A5276;">
+          Email *
+        </label>
+        <input 
+          type="email" 
+          name="email" 
+          required 
+          placeholder="Es. maria@email.com"
+          style="width:100%; padding:12px 16px; border:2px solid #e0e0e0; border-radius:8px; font-size:1rem; box-sizing:border-box;">
+      </div>
+
+      <!-- TELEFONO -->
+      <div style="margin-bottom:16px;">
+        <label style="display:block; font-weight:600; margin-bottom:6px; color:#1A5276;">
+          Telefono *
+        </label>
+        <input 
+          type="tel" 
+          name="telefono" 
+          required 
+          placeholder="Es. 333 1234567"
+          style="width:100%; padding:12px 16px; border:2px solid #e0e0e0; border-radius:8px; font-size:1rem; box-sizing:border-box;">
+      </div>
+
+      <!-- OPZIONE PAGAMENTO -->
+      <div style="margin-bottom:16px;">
+        <label style="display:block; font-weight:600; margin-bottom:6px; color:#1A5276;">
+          Come vuoi pagare? *
+        </label>
+        <select 
+          name="pagamento" 
+          required
+          style="width:100%; padding:12px 16px; border:2px solid #e0e0e0; border-radius:8px; font-size:1rem; box-sizing:border-box; background:#fff;">
+          <option value="">-- Seleziona --</option>
+          <option value="unica">Soluzione unica (797€ + IVA)</option>
+          <option value="early_bird">Early Bird entro [DATA] (697€ + IVA)</option>
+          <option value="coppia">Sconto coppia (697€ + IVA a persona)</option>
+          <option value="rata">Rateizzato (2 rate)</option>
+        </select>
+      </div>
+
+      <!-- CHECKBOX PRIVACY -->
+      <div style="margin-bottom:12px; display:flex; align-items:flex-start; gap:10px;">
+        <input 
+          type="checkbox" 
+          name="privacy" 
+          id="privacy"
+          required
+          style="margin-top:4px; width:18px; height:18px; cursor:pointer;">
+        <label for="privacy" style="font-size:0.9rem; color:#444; line-height:1.5;">
+          Ho letto e accetto la 
+          <a href="privacy.html" target="_blank" style="color:#D4AC0D; font-weight:600;">Privacy Policy</a> *
+        </label>
+      </div>
+
+      <!-- CHECKBOX TERMINI -->
+      <div style="margin-bottom:24px; display:flex; align-items:flex-start; gap:10px;">
+        <input 
+          type="checkbox" 
+          name="termini" 
+          id="termini"
+          required
+          style="margin-top:4px; width:18px; height:18px; cursor:pointer;">
+        <label for="termini" style="font-size:0.9rem; color:#444; line-height:1.5;">
+          Ho letto e accetto i 
+          <a href="termini.html" target="_blank" style="color:#D4AC0D; font-weight:600;">Termini & Condizioni</a> 
+          inclusa la politica di rimborso *
+        </label>
+      </div>
+
+      <!-- BOTTONE INVIO -->
+      <button 
+        type="submit"
+        style="width:100%; padding:16px; background:linear-gradient(135deg, #E74C3C, #C0392B); color:#fff; font-size:1.1rem; font-weight:700; border:none; border-radius:8px; cursor:pointer; letter-spacing:1px;">
+        ✅ INVIA LA MIA ISCRIZIONE
+      </button>
+
+      <p style="text-align:center; font-size:0.85rem; color:#888; margin-top:12px;">
+        Riceverai una email di conferma entro 24 ore
+      </p>
+
+    </form>
+  </div>
+</section>
 
     <!-- HERO -->
     <section class="hero">
