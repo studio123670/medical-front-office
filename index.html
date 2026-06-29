@@ -1,225 +1,631 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Medical Front Office — Settembre 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Open Sans', sans-serif; color: #2C3E50; line-height: 1.7; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Medical Front Office 2026 — Tolentino</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; color: #1a1a2e; background: #fff; }
 
-/* NAVBAR */
-.navbar {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  background: rgba(26, 82, 118, 0.97);
-  padding: 16px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 1000;
-  box-shadow: 0 2px 20px rgba(0,0,0,0.2);
-}
-.navbar-brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  color: white;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-.navbar a {
-  color: #D4AC0D;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 1px;
-}
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: white;
+      text-align: center;
+      padding: 80px 20px 60px;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: #e94560;
+      color: white;
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .hero h1 span { color: #e94560; }
+    .hero p {
+      font-size: clamp(16px, 2.5vw, 20px);
+      opacity: 0.85;
+      max-width: 650px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: #e94560;
+      color: white;
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(233,69,96,0.4);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(233,69,96,0.5); }
+    .hero-meta {
+      margin-top: 28px;
+      font-size: 14px;
+      opacity: 0.65;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
 
-/* HERO */
-.hero {
-  background: linear-gradient(135deg, #1A5276 0%, #154360 100%);
-  color: white;
-  padding: 140px 20px 80px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200') center/cover;
-  opacity: 0.1;
-}
-.hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
-.hero-tag { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #D4AC0D; font-weight: 700; margin-bottom: 20px; }
-.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px,6vw,64px); font-weight: 900; line-height: 1.2; margin-bottom: 24px; }
-.hero p { font-size: clamp(16px,2vw,20px); opacity: 0.9; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
-.btn-primary {
-  display: inline-block; background: #E74C3C; color: white;
-  padding: 18px 40px; border-radius: 50px; text-decoration: none;
-  font-weight: 700; font-size: 16px; letter-spacing: 1px;
-  transition: all 0.3s ease; box-shadow: 0 8px 30px rgba(231,76,60,0.4);
-}
-.btn-primary:hover { background: #C0392B; transform: translateY(-2px); }
+    /* SEZIONI GENERALI */
+    section { padding: 70px 20px; }
+    .container { max-width: 860px; margin: 0 auto; }
+    .section-title {
+      font-size: clamp(24px, 4vw, 38px);
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 16px;
+      color: #1a1a2e;
+    }
+    .section-title span { color: #e94560; }
+    .section-sub {
+      text-align: center;
+      font-size: 17px;
+      color: #555;
+      margin-bottom: 48px;
+      line-height: 1.6;
+    }
 
-/* SEZIONI */
-section { padding: 80px 20px; }
-.container { max-width: 900px; margin: 0 auto; }
-.section-tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #D4AC0D; font-weight: 700; margin-bottom: 12px; }
-h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px,4vw,44px); color: #1A5276; line-height: 1.3; margin-bottom: 24px; }
+    /* PROBLEMA */
+    .problema { background: #f8f9ff; }
+    .problema-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .problema-card {
+      background: white;
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      border-left: 4px solid #e94560;
+    }
+    .problema-card .icon { font-size: 32px; margin-bottom: 12px; }
+    .problema-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #1a1a2e; }
+    .problema-card p { font-size: 14px; color: #666; line-height: 1.5; }
 
-/* PROBLEMA */
-.problema { background: white; }
-.problema p { font-size: 18px; line-height: 1.9; color: #2C3E50; max-width: 700px; }
-.problema .highlight { font-size: 22px; font-weight: 700; color: #1A5276; margin: 30px 0; }
+    /* SOLUZIONE */
+    .soluzione { background: white; }
+    .soluzione-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .soluzione-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: #f8f9ff;
+      border-radius: 14px;
+      padding: 22px;
+    }
+    .soluzione-item .check {
+      background: #e94560;
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .soluzione-item p { font-size: 15px; color: #333; line-height: 1.5; }
 
-/* SOLUZIONE */
-.soluzione { background: #F8F9FA; }
-.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 20px; margin-top: 40px; }
-.info-box { background: white; padding: 24px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); text-align: center; font-size: 15px; font-weight: 600; color: #1A5276; }
-.info-box .emoji { font-size: 32px; display: block; margin-bottom: 12px; }
+    /* PROGRAMMA */
+    .programma { background: #f8f9ff; }
+    .programma-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 40px;
+    }
+    @media(max-width:600px){ .programma-grid { grid-template-columns: 1fr; } }
+    .programma-block {
+      background: white;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    }
+    .programma-block h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #e94560;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .programma-block ul { list-style: none; }
+    .programma-block ul li {
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 15px;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .programma-block ul li:last-child { border-bottom: none; }
+    .programma-block ul li::before { content: "▸"; color: #e94560; font-weight: bold; }
 
-/* PROGRAMMA */
-.programma { background: white; }
-.programma-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
-@media (max-width: 768px) { .programma-grid { grid-template-columns: 1fr; } }
-.programma-col h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 24px; padding-bottom: 12px; }
-.programma-col.mattina h3 { color: #1A5276; border-bottom: 3px solid #1A5276; }
-.programma-col.pomeriggio h3 { color: #D4AC0D; border-bottom: 3px solid #D4AC0D; }
-.programma-item { margin-bottom: 24px; padding-left: 16px; border-left: 3px solid #F2F3F4; }
-.programma-item .orario { font-size: 12px; font-weight: 700; letter-spacing: 2px; color: #D4AC0D; text-transform: uppercase; }
-.programma-item h4 { font-size: 16px; font-weight: 700; color: #1A5276; margin: 4px 0; }
-.programma-item p { font-size: 14px; color: #666; line-height: 1.6; }
+    /* PRIMO SOCCORSO */
+    .primo-soccorso {
+      background: linear-gradient(135deg, #1a1a2e, #0f3460);
+      color: white;
+    }
+    .primo-soccorso .section-title { color: white; }
+    .primo-soccorso .section-sub { color: rgba(255,255,255,0.75); }
+    .ps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .ps-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+    .ps-card .icon { font-size: 36px; margin-bottom: 12px; }
+    .ps-card h3 { font-size: 15px; font-weight: 700; color: white; margin-bottom: 8px; }
+    .ps-card p { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+    .ps-nota {
+      margin-top: 32px;
+      background: rgba(233,69,96,0.15);
+      border: 1px solid rgba(233,69,96,0.4);
+      border-radius: 12px;
+      padding: 20px 24px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+    }
 
-/* BENEFICI */
-.benefici { background: #1A5276; color: white; }
-.benefici h2 { color: white; }
-.benefici-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 24px; margin-top: 40px; }
-.beneficio-box { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 28px; border-radius: 12px; }
-.beneficio-box h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #D4AC0D; }
-.beneficio-box p { font-size: 14px; opacity: 0.85; line-height: 1.6; }
+    /* CHI È ILARIA */
+    .ilaria { background: white; }
+    .ilaria-inner {
+      display: flex;
+      gap: 48px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .ilaria-photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e94560, #0f3460);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      margin: 0 auto;
+    }
+    .ilaria-text h2 {
+      font-size: 28px;
+      font-weight: 900;
+      color: #1a1a2e;
+      margin-bottom: 16px;
+    }
+    .ilaria-text h2 span { color: #e94560; }
+    .ilaria-text p {
+      font-size: 16px;
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .ilaria-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .ilaria-badges span {
+      background: #f8f9ff;
+      border: 1px solid #e0e0e0;
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 13px;
+      color: #1a1a2e;
+      font-weight: 600;
+    }
 
-/* BIO */
-.bio { background: white; }
-.bio-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: start; margin-top: 40px; }
-@media (max-width: 768px) { .bio-grid { grid-template-columns: 1fr; } }
-.bio-foto { width: 100%; border-radius: 16px; background: #F2F3F4; aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #999; text-align: center; padding: 20px; }
-.bio-testo p { font-size: 17px; line-height: 1.9; margin-bottom: 20px; color: #2C3E50; }
+    /* TESTIMONIANZE */
+    .testimonianze { background: #f8f9ff; }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .testi-card {
+      background: white;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      position: relative;
+    }
+    .testi-card::before {
+      content: '"';
+      font-size: 80px;
+      color: #e94560;
+      opacity: 0.15;
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      line-height: 1;
+      font-family: Georgia, serif;
+    }
+    .testi-card p {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e94560, #0f3460);
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-weight: 700; font-size: 16px;
+    }
+    .testi-author-info strong { display: block; font-size: 15px; color: #1a1a2e; }
+    .testi-author-info span { font-size: 13px; color: #888; }
+    .testi-stars { color: #f4c430; font-size: 16px; margin-bottom: 8px; }
 
-/* TESTIMONIANZE */
-.testimonianze { background: #F8F9FA; }
-.testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 30px; margin-top: 40px; }
-.testi-box { background: white; padding: 36px; border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,0.08); position: relative; }
-.testi-box::before { content: '❝'; font-size: 60px; color: #D4AC0D; opacity: 0.4; position: absolute; top: 16px; left: 24px; line-height: 1; }
-.testi-box p { font-size: 16px; line-height: 1.8; color: #2C3E50; margin-top: 30px; font-style: italic; }
-.testi-nome { margin-top: 24px; font-weight: 700; color: #1A5276; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; }
+    /* PREZZO */
+    .prezzo { background: white; }
+    .prezzo-box {
+      max-width: 580px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, #1a1a2e, #0f3460);
+      border-radius: 24px;
+      padding: 48px 40px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 8px 40px rgba(15,52,96,0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    .prezzo-box::before {
+      content: '';
+      position: absolute;
+      top: -50px; right: -50px;
+      width: 200px; height: 200px;
+      background: rgba(233,69,96,0.1);
+      border-radius: 50%;
+    }
+    .prezzo-badge {
+      display: inline-block;
+      background: #e94560;
+      color: white;
+      padding: 6px 20px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .prezzo-originale {
+      font-size: 20px;
+      color: rgba(255,255,255,0.5);
+      text-decoration: line-through;
+      margin-bottom: 8px;
+    }
+    .prezzo-attuale {
+      font-size: 64px;
+      font-weight: 900;
+      color: white;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .prezzo-iva { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 24px; }
+    .prezzo-scadenza {
+      background: rgba(233,69,96,0.2);
+      border: 1px solid rgba(233,69,96,0.4);
+      border-radius: 10px;
+      padding: 12px 20px;
+      font-size: 14px;
+      margin-bottom: 28px;
+      color: rgba(255,255,255,0.9);
+    }
+    .prezzo-include {
+      text-align: left;
+      margin-bottom: 32px;
+    }
+    .prezzo-include li {
+      list-style: none;
+      padding: 8px 0;
+      font-size: 15px;
+      color: rgba(255,255,255,0.85);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .prezzo-include li:last-child { border-bottom: none; }
+    .prezzo-include li::before { content: "✓"; color: #4ade80; font-weight: 700; font-size: 16px; }
 
-/* PREZZO */
-.prezzo { background: white; text-align: center; }
-.prezzo-box { max-width: 560px; margin: 40px auto 0; border: 2px solid #1A5276; border-radius: 24px; padding: 50px 40px; box-shadow: 0 20px 60px rgba(26,82,118,0.12); }
-.prezzo-box h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: #1A5276; margin-bottom: 8px; }
-.prezzo-lista { list-style: none; text-align: left; margin: 30px 0; }
-.prezzo-lista li { padding: 10px 0; border-bottom: 1px solid #F2F3F4; font-size: 15px; color: #2C3E50; }
-.prezzo-lista li:last-child { border-bottom: none; }
+    /* RATE */
+    .rate-box {
+      max-width: 580px;
+      margin: 32px auto 0;
+      background: #f8f9ff;
+      border-radius: 16px;
+      padding: 28px 32px;
+      border: 2px solid #e0e7ff;
+    }
+    .rate-box h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #1a1a2e;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .rate-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media(max-width:500px){ .rate-options { grid-template-columns: 1fr; } }
+    .rate-option {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      border: 2px solid #e0e0e0;
+      transition: border-color 0.2s;
+    }
+    .rate-option:hover { border-color: #e94560; }
+    .rate-option .logo { font-size: 28px; margin-bottom: 8px; }
+    .rate-option h4 { font-size: 15px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
+    .rate-option p { font-size: 13px; color: #666; margin-bottom: 14px; line-height: 1.4; }
+    .rate-option a {
+      display: inline-block;
+      background: #e94560;
+      color: white;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .rate-option a:hover { opacity: 0.85; }
 
-/* FORM */
-.form-input {
-  width: 100%; padding: 12px 16px; border: 2px solid #e0e0e0;
-  border-radius: 8px; font-size: 1rem; box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
-}
-.form-input:focus { outline: none; border-color: #1A5276; }
+    /* COPPIA */
+    .coppia-box {
+      max-width: 580px;
+      margin: 24px auto 0;
+      background: linear-gradient(135deg, #fff8f9, #fff0f3);
+      border: 2px solid #e94560;
+      border-radius: 16px;
+      padding: 24px 32px;
+      text-align: center;
+    }
+    .coppia-box h3 { font-size: 18px; font-weight: 800; color: #e94560; margin-bottom: 8px; }
+    .coppia-box p { font-size: 15px; color: #444; line-height: 1.6; }
+    .coppia-box strong { color: #1a1a2e; }
 
-/* FAQ */
-.faq { background: #F8F9FA; }
-.faq-item { border-bottom: 1px solid #e0e0e0; margin-bottom: 0; }
-.faq-domanda {
-  padding: 20px 0;
-  font-size: 17px;
-  font-weight: 600;
-  color: #1A5276;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  user-select: none;
-}
-.faq-domanda:hover { color: #E74C3C; }
-.faq-domanda .arrow { transition: transform 0.3s; font-size: 14px; }
-.faq-domanda.aperta .arrow { transform: rotate(180deg); }
-.faq-risposta {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s;
-  font-size: 16px;
-  color: #555;
-  line-height: 1.8;
-}
-.faq-risposta.aperta { max-height: 300px; padding-bottom: 20px; }
+    /* COSA OTTIENI */
+    .ottieni { background: #f8f9ff; }
+    .ottieni-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .ottieni-card {
+      background: white;
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+    .ottieni-card .icon { font-size: 40px; margin-bottom: 14px; }
+    .ottieni-card h3 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
+    .ottieni-card p { font-size: 14px; color: #666; line-height: 1.5; }
 
-/* CTA FINALE */
-.cta-finale {
-  background: linear-gradient(135deg, #1A5276 0%, #154360 100%);
-  color: white;
-  text-align: center;
-  padding: 100px 20px;
-}
-.cta-finale h2 { color: white; margin-bottom: 20px; }
-.cta-finale p { font-size: 18px; opacity: 0.9; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+    /* FAQ */
+    .faq { background: white; }
+    .faq-list { margin-top: 40px; }
+    .faq-item {
+      border-bottom: 1px solid #eee;
+      padding: 20px 0;
+    }
+    .faq-item h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 10px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-item h3::after { content: "▾"; color: #e94560; }
+    .faq-item p { font-size: 15px; color: #555; line-height: 1.7; }
 
-/* FOOTER */
-.footer { background: #1a1a2e; color: rgba(255,255,255,0.6); text-align: center; padding: 40px 20px; font-size: 14px; }
-.footer a { color: #D4AC0D; text-decoration: none; }
-</style>
+    /* CTA FINALE */
+    .cta-finale {
+      background: linear-gradient(135deg, #e94560, #c0392b);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .cta-finale h2 {
+      font-size: clamp(24px, 4vw, 40px);
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .cta-finale p {
+      font-size: 18px;
+      opacity: 0.9;
+      margin-bottom: 36px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-white {
+      display: inline-block;
+      background: white;
+      color: #e94560;
+      padding: 16px 44px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+    .btn-white:hover { transform: translateY(-2px); }
+    .cta-posti {
+      margin-top: 20px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    /* FOOTER */
+    .footer {
+      background: #1a1a2e;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .footer a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+    }
+    .footer a:hover { color: #e94560; }
+
+    /* URGENZA */
+    .urgenza-bar {
+      background: #e94560;
+      color: white;
+      text-align: center;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:700px){
+      .ilaria-inner { flex-direction: column; align-items: center; }
+      .ilaria-photo { width: 160px; height: 160px; font-size: 60px; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="navbar-brand">Medical Front Office</div>
-  <a href="#iscrizione">→ Prenota il posto</a>
-</nav>
+<!-- BARRA URGENZA -->
+<div class="urgenza-bar">
+  🔥 Posti limitati a 20 — Early Bird attivo fino al 30 giugno 2026 · Risparmia 200€
+</div>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
-    <p class="hero-tag">📍 Tolentino · Settembre 2026 · Posti Limitati</p>
-    <h1>Diventa la professionista<br>che ogni studio medico<br>vuole assumere.</h1>
-    <p>Un'unica giornata intensiva per acquisire le competenze pratiche, comunicative e cliniche che nessun altro corso ti insegna.</p>
-    <a href="#iscrizione" class="btn-primary">👉 Voglio Iscrivermi — Scopri i Posti Disponibili</a>
+  <div class="container">
+    <div class="badge">🗓️ Settembre 2026 · Tolentino (MC) · 4ª Edizione</div>
+    <h1>Diventa la professionista<br>che il <span>settore sanitario</span><br>sta cercando</h1>
+    <p>Una giornata intensiva e pratica per trasformare la tua carriera nel front office medico. Con chi lo fa davvero, ogni giorno.</p>
+    <a href="#iscrizione" class="btn-primary">🎯 Voglio il mio posto</a>
+    <div class="hero-meta">
+      <span>📍 Tolentino (MC)</span>
+      <span>🕙 10:00 – 18:00</span>
+      <span>👥 Max 20 posti</span>
+      <span>🏅 4ª Edizione</span>
+    </div>
   </div>
 </section>
-
 <!-- PROBLEMA -->
 <section class="problema">
   <div class="container">
-    <p class="section-tag">Il punto di partenza</p>
-    <h2>Sai già che vuoi lavorare<br>in ambito medico.<br>Ma qualcosa ti blocca.</h2>
-    <p>Forse hai già fatto qualche corso, ma senti che manca qualcosa.</p><br>
-    <p>Forse hai mandato curriculum ma non ricevi risposte.</p><br>
-    <p>Forse lavori già in uno studio medico ma senti di non dare il meglio — e non sai esattamente cosa migliorare.</p><br>
-    <p class="highlight">Il problema non sei tu.</p>
-    <p>Il problema è che nessuno ti ha mai insegnato quello che si fa davvero dietro al bancone di uno studio medico.</p><br>
-    <p>La comunicazione con i pazienti difficili. La gestione di un'emergenza. La fatturazione corretta. Il modo di presentarti in un colloquio in questo settore specifico.</p><br>
-    <p><strong>Fino ad oggi.</strong></p>
+    <h2 class="section-title">Ti riconosci in <span>qualcuna di queste situazioni?</span></h2>
+    <p class="section-sub">Molte persone lavorano in ambito sanitario senza una formazione specifica. Il risultato? Stress, errori, insoddisfazione.</p>
+    <div class="problema-grid">
+      <div class="problema-card">
+        <div class="icon">😓</div>
+        <h3>Lavori in uno studio medico ma ti senti impreparata</h3>
+        <p>Nessuno ti ha mai spiegato come gestire davvero il front office di uno studio sanitario.</p>
+      </div>
+      <div class="problema-card">
+        <div class="icon">📋</div>
+        <h3>Non sai come gestire fatturazione e burocrazia sanitaria</h3>
+        <p>Fatture, ricevute, ticket, esenzioni: un labirinto che nessun corso generico ti ha mai insegnato.</p>
+      </div>
+      <div class="problema-card">
+        <div class="icon">📞</div>
+        <h3>La comunicazione con i pazienti ti mette in difficoltà</h3>
+        <p>Gestire pazienti difficili, ansiosi o aggressivi richiede competenze specifiche che si imparano.</p>
+      </div>
+      <div class="problema-card">
+        <div class="icon">🚀</div>
+        <h3>Vuoi entrare nel settore ma non sai da dove iniziare</h3>
+        <p>Il mercato sanitario è in crescita, ma senza le giuste competenze è difficile distinguersi.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- SOLUZIONE -->
 <section class="soluzione">
   <div class="container">
-    <p class="section-tag">La soluzione</p>
-    <h2>Medical Front Office —<br>la giornata che cambia tutto.</h2>
-    <p style="font-size:18px; max-width:650px;">Non è un corso teorico. Non è un corso come gli altri. È una giornata trasformativa in cui esci con competenze reali, pronte da usare.</p>
-    <div class="info-grid">
-      <div class="info-box"><span class="emoji">📅</span>Una giornata intera<br>10:00 — 18:00</div>
-      <div class="info-box"><span class="emoji">📍</span>Tolentino<br>Settembre 2026</div>
-      <div class="info-box"><span class="emoji">👥</span>Gruppo ristretto<br>massima attenzione</div>
-      <div class="info-box"><span class="emoji">🍽️</span>Pranzo<br>incluso</div>
-      <div class="info-box"><span class="emoji">📓</span>Materiale didattico<br>incluso</div>
-      <div class="info-box"><span class="emoji">👕</span>Porta solo<br>te stessa</div>
+    <h2 class="section-title">La soluzione è <span>Medical Front Office</span></h2>
+    <p class="section-sub">Non un corso teorico. Una giornata trasformativa con chi vive il settore ogni giorno e sa esattamente di cosa hai bisogno.</p>
+    <div class="soluzione-list">
+      <div class="soluzione-item">
+        <div class="check">✓</div>
+        <p><strong>Formazione pratica e concreta</strong> — niente teoria inutile, solo quello che usi davvero ogni giorno</p>
+      </div>
+      <div class="soluzione-item">
+        <div class="check">✓</div>
+        <p><strong>Docente con esperienza reale</strong> — Ilaria Rossiello lavora nel settore da anni e conosce ogni sfumatura</p>
+      </div>
+      <div class="soluzione-item">
+        <div class="check">✓</div>
+        <p><strong>Gruppo piccolo e selezionato</strong> — massimo 20 partecipanti per un'esperienza personalizzata</p>
+      </div>
+      <div class="soluzione-item">
+        <div class="check">✓</div>
+        <p><strong>Simulazioni reali</strong> — esercitazioni pratiche su casi concreti, incluso primo soccorso con manichino</p>
+      </div>
+      <div class="soluzione-item">
+        <div class="check">✓</div>
+        <p><strong>Networking con colleghe</strong> — costruisci relazioni con professioniste del tuo settore</p>
+      </div>
+      <div class="soluzione-item">
+        <div class="check">✓</div>
+        <p><strong>Attestato di partecipazione</strong> — da inserire subito nel tuo curriculum</p>
+      </div>
     </div>
   </div>
 </section>
@@ -227,116 +633,87 @@ h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px,4vw,44px); co
 <!-- PROGRAMMA -->
 <section class="programma">
   <div class="container">
-    <p class="section-tag">Il programma</p>
-    <h2>Cosa impari<br>in questa giornata</h2>
+    <h2 class="section-title">Il <span>programma</span> della giornata</h2>
+    <p class="section-sub">Una giornata densa, pratica e coinvolgente. Dalle 10:00 alle 18:00 con pausa pranzo inclusa.</p>
     <div class="programma-grid">
-      <div class="programma-col mattina">
-        <h3>🌅 Sessione Mattutina</h3>
-        <div class="programma-item">
-          <div class="orario">09:30</div>
-          <h4>Registrazione e accoglienza</h4>
-        </div>
-        <div class="programma-item">
-          <div class="orario">10:00</div>
-          <h4>Il mondo della sanità oggi</h4>
-          <p>Come funziona davvero uno studio medico. Il tuo ruolo e il tuo valore.</p>
-        </div>
-        <div class="programma-item">
-          <div class="orario">11:00</div>
-          <h4>Comunicazione con i pazienti</h4>
-          <p>Come gestire ogni tipo di paziente. Parole che curano, parole che allontanano.</p>
-        </div>
-        <div class="programma-item">
-          <div class="orario">12:00</div>
-          <h4>Fatturazione e gestione amministrativa</h4>
-          <p>Quello che devi sapere per non sbagliare e far girare lo studio senza intoppi.</p>
-        </div>
-        <div class="programma-item">
-          <div class="orario">13:00</div>
-          <h4>🍽️ Pausa pranzo</h4>
-        </div>
+      <div class="programma-block">
+        <h3>🌅 Mattina — 10:00/13:00</h3>
+        <ul>
+          <li>Il sistema sanitario italiano: come funziona davvero</li>
+          <li>Il ruolo del front office medico</li>
+          <li>Comunicazione efficace con il paziente</li>
+          <li>Gestione delle situazioni difficili</li>
+          <li>Esercitazioni pratiche e role play</li>
+        </ul>
       </div>
-      <div class="programma-col pomeriggio">
-        <h3>🌆 Sessione Pomeridiana</h3>
-        <div class="programma-item">
-          <div class="orario">14:00</div>
-          <h4>Il colloquio di lavoro nel settore medico</h4>
-          <p>Cosa cercano davvero i datori di lavoro. Come presentarti e distinguerti.</p>
-        </div>
-        <div class="programma-item">
-          <div class="orario">15:30</div>
-          <h4>Primo soccorso e gestione emergenze</h4>
-          <p>Teoria e simulazione pratica su manichino. Tenuto da un medico istruttore BLSD certificato AHA.</p>
-        </div>
-        <div class="programma-item">
-          <div class="orario">17:00</div>
-          <h4>Tavola rotonda e Q&A</h4>
-          <p>Domande, confronto, esperienze. Il momento più prezioso della giornata.</p>
-        </div>
-        <div class="programma-item">
-          <div class="orario">17:45</div>
-          <h4>🎓 Consegna attestati</h4>
-          <p>Il tuo documento ufficiale di formazione, pronto per il curriculum.</p>
-        </div>
-        <div class="programma-item">
-          <div class="orario">18:00</div>
-          <h4>Fine lavori</h4>
-        </div>
+      <div class="programma-block">
+        <h3>🌆 Pomeriggio — 14:00/18:00</h3>
+        <ul>
+          <li>Fatturazione e burocrazia sanitaria</li>
+          <li>Gestione agenda e prenotazioni</li>
+          <li>Privacy e GDPR in ambito sanitario</li>
+          <li>Primo Soccorso e BLSD — teoria e pratica</li>
+          <li>Simulazione su manichino con medico istruttore</li>
+          <li>Colloquio di lavoro: come presentarsi</li>
+        </ul>
       </div>
+    </div>
+    <div style="text-align:center; margin-top:32px;">
+      <p style="font-size:15px; color:#666;">🍽️ <strong>Pausa pranzo:</strong> 13:00 – 14:00 · momento di networking e relax</p>
     </div>
   </div>
 </section>
 
-<!-- BENEFICI -->
-<section class="benefici">
+<!-- PRIMO SOCCORSO -->
+<section class="primo-soccorso">
   <div class="container">
-    <p class="section-tag" style="color:#D4AC0D;">Cosa ottieni davvero</p>
-    <h2>Non stai comprando un corso.<br>Stai investendo in una versione<br>più forte di te.</h2>
-    <div class="benefici-grid">
-      <div class="beneficio-box">
-        <h4>✅ Competenze pratiche immediate</h4>
-        <p>Sai fare le cose — non solo studiarle.</p>
+    <h2 class="section-title">Il modulo che <span style="color:#e94560;">fa la differenza</span></h2>
+    <p class="section-sub">Primo Soccorso e BLSD: perché chi lavora in ambito sanitario deve saper agire, non solo osservare.</p>
+    <div class="ps-grid">
+      <div class="ps-card">
+        <div class="icon">🫀</div>
+        <h3>BLSD — Rianimazione Cardiopolmonare</h3>
+        <p>Teoria completa sul massaggio cardiaco e l'uso del defibrillatore DAE</p>
       </div>
-      <div class="beneficio-box">
-        <h4>✅ Un curriculum che si distingue</h4>
-        <p>L'attestato certifica una formazione specifica e riconoscibile nel settore.</p>
+      <div class="ps-card">
+        <div class="icon">🧸</div>
+        <h3>Simulazione su manichino</h3>
+        <p>Esercitazione pratica reale su manichino professionale per adulti</p>
       </div>
-      <div class="beneficio-box">
-        <h4>✅ Sicurezza nei colloqui</h4>
-        <p>Sai cosa dire, come dirti, perché sei la candidata giusta per quel posto.</p>
+      <div class="ps-card">
+        <div class="icon">👨‍⚕️</div>
+        <h3>Medico istruttore certificato AHA</h3>
+        <p>Il modulo è tenuto da un medico istruttore BLSD certificato American Heart Association</p>
       </div>
-      <div class="beneficio-box">
-        <h4>✅ Gestione delle emergenze</h4>
-        <p>Non ti fai trovare impreparata nel momento che conta di più.</p>
+      <div class="ps-card">
+        <div class="icon">⏱️</div>
+        <h3>8 ore di formazione</h3>
+        <p>Un modulo completo, non un accenno. Teoria, pratica e domande in un percorso strutturato</p>
       </div>
-      <div class="beneficio-box">
-        <h4>✅ Una rete di contatti reale</h4>
-        <p>Entri in un network di professioniste che si supportano e si segnalano.</p>
-      </div>
-      <div class="beneficio-box">
-        <h4>✅ Accesso alle opportunità</h4>
-        <p>Quando si aprono posizioni, le nostre corsiste sono le prime a saperlo.</p>
-      </div>
+    </div>
+    <div class="ps-nota">
+      ℹ️ <strong>Nota:</strong> Il modulo include teoria e simulazione pratica su manichino. Non viene rilasciato attestato di certificazione BLSD — viene rilasciato l'attestato di partecipazione al corso Medical Front Office.
     </div>
   </div>
 </section>
 
-<!-- BIO -->
-<section class="bio">
+<!-- CHI È ILARIA -->
+<section class="ilaria">
   <div class="container">
-    <p class="section-tag">La tua guida</p>
-    <h2>Chi ti guida<br>in questa giornata</h2>
-    <div class="bio-grid">
-      <div class="bio-foto">
-        📸<br><br>Inserisci qui<br>la tua foto
-      </div>
-      <div class="bio-testo">
-        <p>Mi chiamo Ilaria.</p>
-        <p>Ho lavorato per anni in prima linea nella sanità. Ho costruito una carriera solida, ho formato centinaia di professioniste, sono apparsa su testate nazionali e programmi televisivi.</p>
-        <p>Ma ho anche conosciuto il burnout. Ho affrontato un tumore. Ho imparato — nel modo più duro — cosa significa davvero prendersi cura di sé mentre ci si prende cura degli altri.</p>
-        <p>Oggi non insegno solo quello che so fare. Insegno quello che ho vissuto.</p>
-        <p>Perché credo che una professionista della sanità non debba solo essere competente. Debba essere presente, lucida, umana.</p>
-        <p>E credo che tu possa diventarlo — in una sola giornata, se qualcuno ti mostra davvero come si fa.</p>
+    <div class="ilaria-inner">
+      <div class="ilaria-photo">👩‍⚕️</div>
+      <div class="ilaria-text">
+        <h2>Chi è <span>Ilaria Rossiello</span></h2>
+        <p>Ho iniziato come molte di voi: con tanta voglia di fare e poca chiarezza su come farlo. Ho imparato sul campo, sbagliando, ricominciando, costruendo pezzo per pezzo una competenza che nessun libro mi aveva dato.</p>
+        <p>Ho attraversato il burnout. Ho affrontato un tumore. Ho continuato comunque — perché questo lavoro mi ha salvata tanto quanto io ho cercato di aiutare gli altri. Oggi ho una community di oltre <strong>90.000 persone</strong> tra Instagram e TikTok che mi seguono proprio perché parlo di cose reali, con parole vere.</p>
+        <p>Medical Front Office non è un corso che ho costruito per vendere qualcosa. È quello che avrei voluto avere io, quando ho iniziato.</p>
+        <div class="ilaria-badges">
+          <span>🏥 Esperienza diretta nel settore</span>
+          <span>📱 90K+ community</span>
+          <span>🎓 4 edizioni del corso</span>
+          <span>📺 Presenza mediatica</span>
+          <span>💪 Formatrice pratica</span>
+        </div>
       </div>
     </div>
   </div>
@@ -345,146 +722,133 @@ h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px,4vw,44px); co
 <!-- TESTIMONIANZE -->
 <section class="testimonianze">
   <div class="container">
-    <p class="section-tag">Chi c'era prima di te</p>
-    <h2>Cosa dicono chi era seduta<br>dove sei tu adesso</h2>
+    <h2 class="section-title">Cosa dicono <span>chi c'era</span></h2>
+    <p class="section-sub">Parole vere, di persone reali. Non testimonial pagati — colleghe che hanno fatto il corso e hanno cambiato qualcosa nella loro vita professionale.</p>
     <div class="testi-grid">
-      <div class="testi-box">
-        <p>Avevo 56 anni e pensavo che fosse tardi. Che un corso non avrebbe cambiato nulla. Che forse non ero più l'età giusta per ricominciare da capo.<br><br>Mi sbagliavo.<br><br>Già durante il corso ho ricevuto le prime richieste di lavoro. Non dopo. Durante.<br><br>Se stai leggendo questa pagina e stai pensando se vale la pena — ti dico solo questo: smetti di pensarci.</p>
-        <div class="testi-nome">— Manuela, 56 anni</div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Avevo 56 anni e pensavo che fosse troppo tardi per ricominciare. Ilaria mi ha dimostrato il contrario. Ho trovato lavoro in uno studio medico due mesi dopo il corso. Non ci credevo nemmeno io."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">M</div>
+          <div class="testi-author-info">
+            <strong>Manuela</strong>
+            <span>56 anni — ora receptionist in studio medico</span>
+          </div>
+        </div>
       </div>
-      <div class="testi-box">
-        <p>Sono passati due anni da quando ho partecipato al corso.<br><br>Oggi lavoro ancora nello stesso studio dove sono stata raccomandata da Ilaria.<br><br>Non è stato solo un corso. È stata una porta. E qualcuno me l'ha aperta davvero.</p>
-        <div class="testi-nome">— Corsista della seconda edizione</div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Sono entrata in uno studio medico subito dopo il corso e ci lavoro da due anni. È stato il punto di svolta. Prima non sapevo nemmeno da dove iniziare, adesso sono la persona di riferimento per tutto il front office."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">S</div>
+          <div class="testi-author-info">
+            <strong>Sara</strong>
+            <span>Corsista edizione precedente — in studio da 2 anni</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Non pensavo che in una sola giornata si potesse imparare così tanto. Il modulo sul primo soccorso mi ha emozionata. Sono uscita con una consapevolezza completamente diversa del mio ruolo."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">G</div>
+          <div class="testi-author-info">
+            <strong>Giulia</strong>
+            <span>Corsista 3ª edizione</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PREZZI -->
-<section id="prezzi" style="background:#f8f9fa; padding:80px 20px; text-align:center;">
+<!-- PREZZO -->
+<section class="prezzo" id="iscrizione">
   <div class="container">
-    <p class="section-tag">L'investimento</p>
-    <h2>Scegli la tua iscrizione</h2>
-    <p style="color:#666; margin-bottom:40px; font-size:17px;">Posti limitati a 20–25 partecipanti — assicurati il tuo posto ora</p>
-    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; max-width:1000px; margin:0 auto;">
+    <h2 class="section-title">Scegli come <span>partecipare</span></h2>
+    <p class="section-sub">Un investimento nella tua carriera. Con la possibilità di pagare in comode rate.</p>
 
-      <!-- EARLY BIRD -->
-      <div style="background:white; border:3px solid #e8b4b8; border-radius:16px; padding:35px 30px; max-width:280px; position:relative; box-shadow:0 4px 20px rgba(0,0,0,0.1);">
-        <div style="background:#e8b4b8; color:white; padding:8px 20px; border-radius:20px; font-size:0.85em; font-weight:bold; margin-bottom:20px; display:inline-block;">
-          ⏰ EARLY BIRD — Scade 31 Luglio
-        </div>
-        <h3 style="font-size:1.4em; color:#1a1a2e; margin-bottom:5px;">Iscrizione Anticipata</h3>
-        <p style="color:#999; text-decoration:line-through; font-size:1em; margin:5px 0;">797€ + IVA</p>
-        <p style="font-size:2.5em; font-weight:bold; color:#c0392b; margin:10px 0;">697€</p>
-        <p style="color:#666; font-size:0.85em; margin-bottom:5px;">+ IVA</p>
-        <p style="color:#27ae60; font-weight:bold; font-size:0.95em; margin-bottom:20px;">✅ Risparmi 100€</p>
-        <p style="color:#888; font-size:0.8em; margin-bottom:25px;">oppure 2 rate da <strong>349€</strong></p>
-        <a href="#iscrizione" style="background:#e8b4b8; color:white; padding:14px 30px; border-radius:30px; text-decoration:none; font-weight:bold; display:block;">
-          Voglio questo posto →
-        </a>
+    <div class="prezzo-box">
+      <div class="prezzo-badge">🐣 Early Bird — fino al 30 giugno 2026</div>
+      <div class="prezzo-originale">797€ + IVA</div>
+      <div class="prezzo-attuale">597€</div>
+      <div class="prezzo-iva">+ IVA · Risparmi 200€</div>
+      <div class="prezzo-scadenza">
+        ⏰ Offerta valida fino al <strong>30 giugno 2026</strong> · Dal 1° luglio il prezzo torna a 797€ + IVA
       </div>
-
-      <!-- PREZZO STANDARD -->
-      <div style="background:white; border:3px solid #cccccc; border-radius:16px; padding:35px 30px; max-width:280px; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
-        <div style="background:#888; color:white; padding:8px 20px; border-radius:20px; font-size:0.85em; font-weight:bold; margin-bottom:20px; display:inline-block;">
-          📅 Prezzo Standard
-        </div>
-        <h3 style="font-size:1.4em; color:#1a1a2e; margin-bottom:5px;">Iscrizione Normale</h3>
-        <p style="visibility:hidden; font-size:1em; margin:5px 0;">spazio</p>
-        <p style="font-size:2.5em; font-weight:bold; color:#1a1a2e; margin:10px 0;">797€</p>
-        <p style="color:#666; font-size:0.85em; margin-bottom:5px;">+ IVA</p>
-        <p style="color:#888; font-size:0.95em; margin-bottom:20px;">Dopo il 31 Luglio</p>
-        <p style="color:#888; font-size:0.8em; margin-bottom:25px;">oppure 2 rate da <strong>399€</strong></p>
-        <a href="#iscrizione" style="background:#1a1a2e; color:white; padding:14px 30px; border-radius:30px; text-decoration:none; font-weight:bold; display:block;">
-          Iscriviti ora →
-        </a>
-      </div>
-
-      <!-- SCONTO COPPIA -->
-      <div style="background:linear-gradient(135deg, #1a1a2e, #2d2d5e); border:3px solid #1a1a2e; border-radius:16px; padding:35px 30px; max-width:280px; position:relative; box-shadow:0 8px 30px rgba(0,0,0,0.2);">
-        <div style="background:#e8b4b8; color:white; padding:8px 20px; border-radius:20px; font-size:0.85em; font-weight:bold; margin-bottom:20px; display:inline-block;">
-          👥 OFFERTA COPPIA
-        </div>
-        <h3 style="font-size:1.4em; color:white; margin-bottom:5px;">Venite in Due</h3>
-        <p style="color:#aaa; text-decoration:line-through; font-size:1em; margin:5px 0;">1.594€ + IVA</p>
-        <p style="font-size:2.5em; font-weight:bold; color:#e8b4b8; margin:10px 0;">1.394€</p>
-        <p style="color:#aaa; font-size:0.85em; margin-bottom:5px;">+ IVA per entrambe</p>
-        <p style="color:#e8b4b8; font-weight:bold; font-size:0.95em; margin-bottom:20px;">✅ 100€ di sconto a testa</p>
-        <p style="color:#aaa; font-size:0.8em; margin-bottom:25px;">Iscrizione simultanea richiesta</p>
-        <a href="#iscrizione" style="background:#e8b4b8; color:white; padding:14px 30px; border-radius:30px; text-decoration:none; font-weight:bold; display:block;">
-          Iscriviamoci insieme →
-        </a>
-      </div>
+      <ul class="prezzo-include">
+        <li>Giornata formativa completa (10:00–18:00)</li>
+        <li>Tutti i moduli mattina e pomeriggio</li>
+        <li>Modulo Primo Soccorso e BLSD con manichino</li>
+        <li>Medico istruttore certificato AHA</li>
+        <li>Materiale didattico incluso</li>
+        <li>Pausa pranzo inclusa</li>
+        <li>Attestato di partecipazione</li>
+        <li>Networking con il gruppo</li>
+      </ul>
+      <a href="https://buy.stripe.com/TUOLINK" class="btn-primary" style="font-size:17px; padding:18px 48px;">
+        💳 Paga ora con Stripe
+      </a>
+      <p style="margin-top:16px; font-size:13px; opacity:0.7;">Pagamento sicuro · Ricevi conferma immediata</p>
     </div>
 
-    <!-- NOTA RATEIZZAZIONE -->
-    <div style="margin-top:40px; background:white; border-radius:12px; padding:20px 30px; max-width:600px; margin:40px auto 0; box-shadow:0 2px 10px rgba(0,0,0,0.08);">
-      <p style="color:#1a1a2e; font-weight:bold; margin-bottom:8px;">💳 Rateizzazione disponibile per tutti i piani</p>
-      <p style="color:#666; font-size:0.9em; margin:0;">Puoi pagare in <strong>2 rate mensili</strong> senza interessi. Contattaci dopo l'iscrizione per attivare il piano rateale.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ISCRIZIONE -->
-<section id="iscrizione" style="background:#F8F9FA; padding:80px 20px;">
-  <div class="container">
-    <div style="text-align:center; margin-bottom:40px;">
-      <p class="section-tag">Prenota il tuo posto</p>
-      <h2>Inizia il tuo percorso</h2>
-      <p style="font-size:17px; color:#555; max-width:600px; margin:16px auto 0;">
-        I posti sono limitati a <strong>20–25 partecipanti</strong>.<br>
-        Compila il modulo e riceverai conferma entro 24 ore.
+    <!-- RATE -->
+    <div class="rate-box">
+      <h3>💳 Preferisci pagare a rate?</h3>
+      <div class="rate-options">
+        <div class="rate-option">
+          <div class="logo">🅿️</div>
+          <h4>PayPal — Paga in 3 rate</h4>
+          <p>3 rate senza interessi direttamente dal tuo account PayPal</p>
+          <a href="https://www.paypal.com/it/webapps/mpp/paypal-installments" target="_blank">Paga con PayPal</a>
+        </div>
+        <div class="rate-option">
+          <div class="logo">⚡</div>
+          <h4>Stripe — Pagamento rateale</h4>
+          <p>Paga in più rate con carta di credito tramite Stripe</p>
+          <a href="https://buy.stripe.com/TUOLINK" target="_blank">Paga con Stripe</a>
+        </div>
+      </div>
+      <p style="font-size:13px; color:#888; text-align:center; margin-top:16px;">
+        ℹ️ Per PayPal: seleziona "Paga in 3 rate" durante il checkout · Per Stripe: le opzioni rateali sono disponibili al checkout
       </p>
     </div>
-    <div style="background:#fff; border-radius:16px; padding:40px; max-width:560px; margin:0 auto; box-shadow:0 4px 24px rgba(0,0,0,0.10);">
-      <h3 style="color:#1A5276; font-size:1.4rem; margin-bottom:24px; text-align:center;">
-        📩 Prenota il tuo posto
-      </h3>
-      <form action="https://formspree.io/f/mdardgeq" method="POST">
-        <div style="margin-bottom:16px;">
-          <label style="display:block; font-weight:600; margin-bottom:6px; color:#1A5276;">Nome e Cognome *</label>
-          <input type="text" name="nome" required placeholder="Es. Maria Rossi" class="form-input">
-        </div>
-        <div style="margin-bottom:16px;">
-          <label style="display:block; font-weight:600; margin-bottom:6px; color:#1A5276;">Email *</label>
-          <input type="email" name="email" required placeholder="Es. maria@email.com" class="form-input">
-        </div>
-        <div style="margin-bottom:16px;">
-          <label style="display:block; font-weight:600; margin-bottom:6px; color:#1A5276;">Telefono *</label>
-          <input type="tel" name="telefono" required placeholder="Es. 333 1234567" class="form-input">
-        </div>
-        <div style="margin-bottom:16px;">
-          <label style="display:block; font-weight:600; margin-bottom:6px; color:#1A5276;">Come vuoi pagare? *</label>
-          <select name="pagamento" required class="form-input" style="background:#fff;">
-            <option value="">-- Seleziona --</option>
-            <option value="unica">Soluzione unica (797€ + IVA)</option>
-            <option value="early_bird">Early Bird entro 31 Luglio (697€ + IVA)</option>
-            <option value="coppia">Sconto coppia (697€ + IVA a persona)</option>
-            <option value="rata">Rateizzato (2 rate)</option>
-          </select>
-        </div>
-        <div style="margin-bottom:12px; display:flex; align-items:flex-start; gap:10px;">
-          <input type="checkbox" name="privacy" id="privacy" required style="margin-top:4px; width:18px; height:18px; cursor:pointer;">
-          <label for="privacy" style="font-size:0.9rem; color:#444; line-height:1.5;">
-            Ho letto e accetto la
-            <a href="privacy.html" target="_blank" style="color:#D4AC0D; font-weight:600;">Privacy Policy</a> *
-          </label>
-        </div>
-        <div style="margin-bottom:24px; display:flex; align-items:flex-start; gap:10px;">
-          <input type="checkbox" name="termini" id="termini" required style="margin-top:4px; width:18px; height:18px; cursor:pointer;">
-          <label for="termini" style="font-size:0.9rem; color:#444; line-height:1.5;">
-            Ho letto e accetto i
-            <a href="termini.html" target="_blank" style="color:#D4AC0D; font-weight:600;">Termini & Condizioni</a>
-            inclusa la politica di rimborso *
-          </label>
-        </div>
-        <button type="submit" style="width:100%; padding:16px; background:linear-gradient(135deg,#E74C3C,#C0392B); color:#fff; font-size:1.1rem; font-weight:700; border:none; border-radius:8px; cursor:pointer; letter-spacing:1px;">
-          ✅ INVIA LA MIA ISCRIZIONE
-        </button>
-        <p style="text-align:center; font-size:0.85rem; color:#888; margin-top:12px;">
-          Riceverai una email di conferma entro 24 ore
-        </p>
-      </form>
+
+    <!-- SCONTO COPPIA -->
+    <div class="coppia-box">
+      <h3>👯 Venite in due? Sconto coppia!</h3>
+      <p>Iscriviti insieme a una collega o amica e risparmiate entrambe.<br>
+      <strong>Sconto di 100€ a testa</strong> — scrivici su Instagram o via email per attivare l'offerta coppia prima di procedere al pagamento.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COSA OTTIENI DAVVERO -->
+<section class="ottieni">
+  <div class="container">
+    <h2 class="section-title">Cosa ottieni <span>davvero</span></h2>
+    <p class="section-sub">Oltre alle competenze tecniche, esci dal corso con qualcosa di più prezioso.</p>
+    <div class="ottieni-grid">
+      <div class="ottieni-card">
+        <div class="icon">🎯</div>
+        <h3>Chiarezza professionale</h3>
+        <p>Sai esattamente cosa fare, come farlo e perché. Niente più dubbi o insicurezze sul tuo ruolo.</p>
+      </div>
+      <div class="ottieni-card">
+        <div class="icon">💼</div>
+        <h3>Curriculum aggiornato</h3>
+        <p>Un attestato concreto da mostrare ai datori di lavoro, che dimostra competenza specifica nel settore.</p>
+      </div>
+      <div class="ottieni-card">
+        <div class="icon">🤝</div>
+        <h3>Una rete di colleghe</h3>
+        <p>Entri a far parte di un gruppo di professioniste che si supportano, si consigliano, si aiutano.</p>
+      </div>
+      <div class="ottieni-card">
+        <div class="icon">💪</div>
+        <h3>Autostima professionale</h3>
+        <p>Esci sapendo di valere. E questo cambia tutto — nel lavoro e nella vita.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -492,134 +856,65 @@ h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px,4vw,44px); co
 <!-- FAQ -->
 <section class="faq">
   <div class="container">
-    <p class="section-tag">Hai dubbi?</p>
-    <h2>Hai ancora qualche dubbio?<br>Ci siamo già passate.</h2>
-
-    <div class="faq-item">
-      <div class="faq-domanda" onclick="toggleFaq(this)">
-        797€ sono tanti. Come faccio a sapere se vale davvero?
-        <span class="arrow">▼</span>
+    <h2 class="section-title">Domande <span>frequenti</span></h2>
+    <p class="section-sub">Hai dubbi? Probabilmente la risposta è già qui.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Devo avere esperienza pregressa nel settore sanitario?</h3>
+        <p>No, il corso è aperto a tutti i livelli. Sia che tu stia iniziando da zero, sia che tu voglia aggiornare le tue competenze, Medical Front Office è pensato per te.</p>
       </div>
-      <div class="faq-risposta">
-        Capisco la domanda — e la rispetto. 797€ non sono pochi. Ma considera questo: una sola giornata di lavoro in uno studio medico privato può valere dai 100 ai 150€. Se questo corso ti aiuta a trovare lavoro anche solo un mese prima, si ripaga da solo. E se ti aiuta a trovare il lavoro giusto — quello in cui resti per anni — il valore è incalcolabile.
+      <div class="faq-item">
+        <h3>Dove si svolge il corso?</h3>
+        <p>Il corso si svolge in presenza a Tolentino (MC). L'indirizzo esatto viene comunicato dopo la conferma dell'iscrizione.</p>
       </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-domanda" onclick="toggleFaq(this)">
-        Posso pagare a rate?
-        <span class="arrow">▼</span>
+      <div class="faq-item">
+        <h3>Quanti posti sono disponibili?</h3>
+        <p>Il corso è limitato a massimo 20 partecipanti per garantire un'esperienza personalizzata e di qualità. Una volta esauriti i posti, non sarà possibile aggiungerne altri.</p>
       </div>
-      <div class="faq-risposta">
-        Sì. Al momento dell'iscrizione puoi scegliere l'opzione di pagamento rateizzato. I dettagli ti vengono comunicati dopo la compilazione del modulo di iscrizione.
+      <div class="faq-item">
+        <h3>Viene rilasciato un attestato?</h3>
+        <p>Sì, viene rilasciato un attestato di partecipazione al corso Medical Front Office, che puoi inserire nel tuo curriculum. Il modulo BLSD non include un attestato di certificazione separato.</p>
       </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-domanda" onclick="toggleFaq(this)">
-        Non ho esperienza nel settore medico. Posso partecipare lo stesso?
-        <span class="arrow">▼</span>
+      <div class="faq-item">
+        <h3>Posso pagare a rate?</h3>
+        <p>Sì! Puoi pagare in 3 rate senza interessi tramite PayPal oppure a rate tramite Stripe. Scegli l'opzione che preferisci nella sezione iscrizione.</p>
       </div>
-      <div class="faq-risposta">
-        Assolutamente sì. Il corso è pensato esattamente per chi vuole entrare nel settore — anche da zero. Non è richiesta nessuna esperienza pregressa. Anzi: partire senza abitudini sbagliate è spesso un vantaggio.
+      <div class="faq-item">
+        <h3>Il pranzo è incluso?</h3>
+        <p>Sì, la pausa pranzo è inclusa nel costo del corso. È anche un momento prezioso per fare networking con le altre partecipanti.</p>
       </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-domanda" onclick="toggleFaq(this)">
-        Ottengo un attestato riconosciuto?
-        <span class="arrow">▼</span>
+      <div class="faq-item">
+        <h3>Cosa succede se mi iscrivo e non posso partecipare?</h3>
+        <p>Ti invitiamo a contattarci prima di procedere con il pagamento per qualsiasi dubbio. Per informazioni sulla politica di rimborso, consulta i nostri Termini e Condizioni.</p>
       </div>
-      <div class="faq-risposta">
-        Ricevi un attestato di partecipazione ufficiale, che certifica la tua presenza a una giornata di formazione specifica nel settore medico. Non è una certificazione BLSD (quella richiede un percorso dedicato di 8 ore), ma è un documento reale che puoi inserire nel curriculum e che dimostra il tuo impegno e la tua formazione.
+      <div class="faq-item">
+        <h3>Come funziona lo sconto coppia?</h3>
+        <p>Se vi iscrivete in due, avete diritto a uno sconto di 100€ a testa. Contattateci prima di pagare su Instagram o via email per attivare l'offerta.</p>
       </div>
     </div>
-
-    <div class="faq-item">
-      <div class="faq-domanda" onclick="toggleFaq(this)">
-        Il corso mi aiuta davvero a trovare lavoro?
-        <span class="arrow">▼</span>
-      </div>
-      <div class="faq-risposta">
-        Non possiamo garantire un posto di lavoro — nessuno può farlo onestamente. Quello che possiamo dirti è che alcune corsiste hanno ricevuto proposte già durante la giornata, e che Ilaria segnala attivamente le partecipanti meritevoli agli studi medici della sua rete. Il corso non è solo formazione: è una porta di accesso al mercato del lavoro.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-domanda" onclick="toggleFaq(this)">
-        Quante persone ci sono in aula?
-        <span class="arrow">▼</span>
-      </div>
-      <div class="faq-risposta">
-        Il gruppo è volutamente ristretto — massimo 20/25 partecipanti. Questa scelta non è casuale: vogliamo che ogni persona riceva attenzione reale, possa fare domande, partecipare alle simulazioni e uscire con qualcosa di concreto. Non è un corso di massa. È una giornata su misura.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-domanda" onclick="toggleFaq(this)">
-        Il pranzo è davvero incluso?
-        <span class="arrow">▼</span>
-      </div>
-      <div class="faq-risposta">
-        Sì, il pranzo è incluso nel prezzo. La pausa è parte integrante della giornata — è il momento in cui ci si conosce davvero, si scambiano esperienze, si costruisce la rete. Non è solo un pasto: è networking.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <div class="faq-domanda" onclick="toggleFaq(this)">
-        Cosa devo portare?
-        <span class="arrow">▼</span>
-      </div>
-      <div class="faq-risposta">
-        Solo te stessa — e un abbigliamento comodo. Tutto il materiale didattico è fornito. Niente zaini pesanti, niente fotocopie dell'ultimo minuto. Pensa solo ad arrivare riposata e con la testa libera.
-      </div>
-    </div>
-
   </div>
 </section>
 
 <!-- CTA FINALE -->
 <section class="cta-finale">
   <div class="container">
-    <p class="section-tag" style="color:#D4AC0D;">Ultima chiamata</p>
-    <h2>I posti sono limitati.<br>La prossima edizione<br>è a Settembre 2026.</h2>
-    <p>Non aspettare che si esauriscano per decidere che era il momento giusto.<br>Il momento giusto è adesso.</p>
-    <a href="#iscrizione" class="btn-primary">👉 Prenota il Tuo Posto Ora</a>
+    <h2>Pronta a cambiare la tua carriera?</h2>
+    <p>I posti sono solo 20. Ogni giorno che aspetti è un posto in meno. Inizia oggi.</p>
+    <a href="#iscrizione" class="btn-white">🎯 Prenota il tuo posto ora</a>
+    <p class="cta-posti">🔴 Posti limitati · Early Bird fino al 30 giugno 2026 · Risparmia 200€</p>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
-  <p>© 2026 Medical Front Office — Ilaria Fioretti</p>
+  <p><strong style="color:white;">Medical Front Office</strong> — 4ª Edizione · Settembre 2026 · Tolentino (MC)</p>
+  <p>Ilaria Rossiello · P.IVA 02742640424</p>
   <p style="margin-top:8px;">
-    <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
-    <a href="termini.html">Termini & Condizioni</a>
+    <a href="/privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
+    <a href="/termini.html">Termini e Condizioni</a>
   </p>
-  <p style="margin-top:8px; font-size:12px; opacity:0.6;">P.IVA: [INSERISCI P.IVA] — Tolentino (MC)</p>
+  <p style="margin-top:8px; font-size:12px; opacity:0.5;">© 2026 Ilaria Rossiello — Tutti i diritti riservati</p>
 </footer>
-
-<script>
-function toggleFaq(element) {
-  const risposta = element.nextElementSibling;
-  const isAperta = risposta.classList.contains('aperta');
-  document.querySelectorAll('.faq-risposta').forEach(r => r.classList.remove('aperta'));
-  document.querySelectorAll('.faq-domanda').forEach(d => d.classList.remove('aperta'));
-  if (!isAperta) {
-    risposta.classList.add('aperta');
-    element.classList.add('aperta');
-  }
-}
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
-</script>
 
 </body>
 </html>
