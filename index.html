@@ -6,28 +6,45 @@
     <title>Medical Front Office — Settembre 2026</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Open Sans', sans-serif; color: #2C3E50; line-height: 1.7; }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(26, 82, 118, 0.97);
+            padding: 16px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        }
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: white;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .navbar a {
+            color: #D4AC0D;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
         }
 
-        body {
-            font-family: 'Open Sans', sans-serif;
-            color: #2C3E50;
-            line-height: 1.7;
-        }
-
-        /* ===== HERO ===== */
+        /* HERO */
         .hero {
             background: linear-gradient(135deg, #1A5276 0%, #154360 100%);
             color: white;
-            padding: 80px 20px;
+            padding: 140px 20px 80px;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
-
         .hero::before {
             content: '';
             position: absolute;
@@ -35,464 +52,381 @@
             background: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200') center/cover;
             opacity: 0.1;
         }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-tag {
-            font-size: 12px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #D4AC0D;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(36px, 6vw, 64px);
-            font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 24px;
-        }
-
-        .hero p {
-            font-size: clamp(16px, 2vw, 20px);
-            opacity: 0.9;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
+        .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+        .hero-tag { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #D4AC0D; font-weight: 700; margin-bottom: 20px; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px,6vw,64px); font-weight: 900; line-height: 1.2; margin-bottom: 24px; }
+        .hero p { font-size: clamp(16px,2vw,20px); opacity: 0.9; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
         .btn-primary {
-            display: inline-block;
-            background: #E74C3C;
-            color: white;
-            padding: 18px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 30px rgba(231, 76, 60, 0.4);
+            display: inline-block; background: #E74C3C; color: white;
+            padding: 18px 40px; border-radius: 50px; text-decoration: none;
+            font-weight: 700; font-size: 16px; letter-spacing: 1px;
+            transition: all 0.3s ease; box-shadow: 0 8px 30px rgba(231,76,60,0.4);
         }
+        .btn-primary:hover { background: #C0392B; transform: translateY(-2px); }
 
-        .btn-primary:hover {
-            background: #C0392B;
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(231, 76, 60, 0.5);
-        }
+        /* SEZIONI */
+        section { padding: 80px 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .section-tag { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #D4AC0D; font-weight: 700; margin-bottom: 12px; }
+        h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px,4vw,44px); color: #1A5276; line-height: 1.3; margin-bottom: 24px; }
 
-        /* ===== SEZIONI GENERALI ===== */
-        section {
-            padding: 80px 20px;
-        }
+        /* PROBLEMA */
+        .problema { background: white; }
+        .problema p { font-size: 18px; line-height: 1.9; color: #2C3E50; max-width: 700px; }
+        .problema .highlight { font-size: 22px; font-weight: 700; color: #1A5276; margin: 30px 0; }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
+        /* SOLUZIONE */
+        .soluzione { background: #F8F9FA; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 20px; margin-top: 40px; }
+        .info-box { background: white; padding: 24px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); text-align: center; font-size: 15px; font-weight: 600; color: #1A5276; }
+        .info-box .emoji { font-size: 32px; display: block; margin-bottom: 12px; }
 
-        .section-tag {
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #D4AC0D;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
+        /* PROGRAMMA */
+        .programma { background: white; }
+        .programma-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+        @media (max-width: 768px) { .programma-grid { grid-template-columns: 1fr; } }
+        .programma-col h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 24px; padding-bottom: 12px; }
+        .programma-col.mattina h3 { color: #1A5276; border-bottom: 3px solid #1A5276; }
+        .programma-col.pomeriggio h3 { color: #D4AC0D; border-bottom: 3px solid #D4AC0D; }
+        .programma-item { margin-bottom: 24px; padding-left: 16px; border-left: 3px solid #F2F3F4; }
+        .programma-item .orario { font-size: 12px; font-weight: 700; letter-spacing: 2px; color: #D4AC0D; text-transform: uppercase; }
+        .programma-item h4 { font-size: 16px; font-weight: 700; color: #1A5276; margin: 4px 0; }
+        .programma-item p { font-size: 14px; color: #666; line-height: 1.6; }
 
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(28px, 4vw, 44px);
-            color: #1A5276;
-            line-height: 1.3;
-            margin-bottom: 24px;
-        }
+        /* BENEFICI */
+        .benefici { background: #1A5276; color: white; }
+        .benefici h2 { color: white; }
+        .benefici-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 24px; margin-top: 40px; }
+        .beneficio-box { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); padding: 28px; border-radius: 12px; }
+        .beneficio-box h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #D4AC0D; }
+        .beneficio-box p { font-size: 14px; opacity: 0.85; line-height: 1.6; }
 
-        /* ===== PROBLEMA ===== */
-        .problema {
-            background: white;
-        }
+        /* BIO */
+        .bio { background: white; }
+        .bio-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: start; margin-top: 40px; }
+        @media (max-width: 768px) { .bio-grid { grid-template-columns: 1fr; } }
+        .bio-foto { width: 100%; border-radius: 16px; background: #F2F3F4; aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #999; text-align: center; padding: 20px; }
+        .bio-testo p { font-size: 17px; line-height: 1.9; margin-bottom: 20px; color: #2C3E50; }
 
-        .problema p {
-            font-size: 18px;
-            line-height: 1.9;
-            color: #2C3E50;
-            max-width: 700px;
-        }
+        /* TESTIMONIANZE */
+        .testimonianze { background: #F8F9FA; }
+        .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 30px; margin-top: 40px; }
+        .testi-box { background: white; padding: 36px; border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,0.08); position: relative; }
+        .testi-box::before { content: '❝'; font-size: 60px; color: #D4AC0D; opacity: 0.4; position: absolute; top: 16px; left: 24px; line-height: 1; }
+        .testi-box p { font-size: 16px; line-height: 1.8; color: #2C3E50; margin-top: 30px; font-style: italic; }
+        .testi-nome { margin-top: 24px; font-weight: 700; color: #1A5276; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; }
 
-        .problema .highlight {
-            font-size: 22px;
-            font-weight: 700;
-            color: #1A5276;
-            margin: 30px 0;
-        }
+        /* PREZZO */
+        .prezzo { background: white; text-align: center; }
+        .prezzo-box { max-width: 560px; margin: 40px auto 0; border: 2px solid #1A5276; border-radius: 24px; padding: 50px 40px; box-shadow: 0 20px 60px rgba(26,82,118,0.12); }
+        .prezzo-box h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: #1A5276; margin-bottom: 8px; }
+        .prezzo-box .prezzo-numero { font-size: 56px; font-weight: 900; color: #1A5276; line-height: 1; margin: 20px 0 4px; }
+        .prezzo-box .prezzo-iva { font-size: 14px; color: #999; margin-bottom: 30px; }
+        .prezzo-lista { list-style: none; text-align: left; margin: 30px 0; }
+        .prezzo-lista li { padding: 10px 0; border-bottom: 1px solid #F2F3F4; font-size: 15px; color: #2C3E50; }
+        .prezzo-lista li:last-child { border-bottom: none; }
 
-        /* ===== SOLUZIONE ===== */
-        .soluzione {
-            background: #F8F9FA;
+        /* FORM */
+        .form-input {
+            width: 100%; padding: 12px 16px; border: 2px solid #e0e0e0;
+            border-radius: 8px; font-size: 1rem; box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
         }
+        .form-input:focus { outline: none; border-color: #1A5276; }
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
+        /* FOOTER */
+        .footer { background: #1a1a2e; color: rgba(255,255,255,0.6); text-align: center; padding: 40px 20px; font-size: 14px; }
+        .footer a { color: #D4AC0D; text-decoration: none; }
+    </style>
+</head>
+<body>
 
-        .info-box {
-            background: white;
-            padding: 24px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            text-align: center;
-            font-size: 15px;
-            font-weight: 600;
-            color: #1A5276;
-        }
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="navbar-brand">Medical Front Office</div>
+    <a href="#iscrizione">→ Prenota il posto</a>
+</nav>
 
-        .info-box .emoji {
-            font-size: 32px;
-            display: block;
-            margin-bottom: 12px;
-        }
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <p class="hero-tag">⭐ IV Edizione — Tolentino, Settembre 2026</p>
+        <h1>Diventa la professionista che ogni studio medico cerca</h1>
+        <p>Un giorno intensivo per trasformare la tua carriera nel settore sanitario. Formazione pratica, certificata e con sbocchi reali.</p>
+        <a href="#iscrizione" class="btn-primary">🎯 Prenota il tuo posto ora</a>
+    </div>
+</section>
 
-        /* ===== PROGRAMMA ===== */
-        .programma {
-            background: white;
-        }
+<!-- PROBLEMA -->
+<section class="problema">
+    <div class="container">
+        <p class="section-tag">Il problema</p>
+        <h2>Hai competenze, ma nessuno te le riconosce?</h2>
+        <p>Ogni giorno entri in uno studio medico, una clinica, un poliambulatorio — e sai che potresti fare di più. Ma senza una formazione specifica nel settore sanitario, rimani invisibile.</p>
+        <p class="highlight">Il front office medico non è come gli altri. Richiede competenze precise, linguaggio tecnico, gestione delle emergenze e un'empatia che si impara.</p>
+        <p>Questo corso è nato esattamente per questo: darti gli strumenti concreti per entrare — o crescere — nel mondo della sanità privata.</p>
+    </div>
+</section>
 
-        .programma-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 40px;
-        }
+<!-- SOLUZIONE -->
+<section class="soluzione">
+    <div class="container">
+        <p class="section-tag">La soluzione</p>
+        <h2>Un giorno che vale un anno di esperienza</h2>
+        <p style="font-size:18px; color:#555; max-width:700px;">Medical Front Office è l'unico corso in Italia dedicato specificamente alla figura professionale del front office in ambito sanitario privato.</p>
+        <div class="info-grid">
+            <div class="info-box"><span class="emoji">📅</span>Settembre 2026<br>Tolentino (MC)</div>
+            <div class="info-box"><span class="emoji">🕙</span>Ore 10:00 – 18:00<br>Giornata intera</div>
+            <div class="info-box"><span class="emoji">👥</span>Max 20–25 posti<br>Gruppo ristretto</div>
+            <div class="info-box"><span class="emoji">🏅</span>Attestato<br>di partecipazione</div>
+        </div>
+    </div>
+</section>
 
-        @media (max-width: 768px) {
-            .programma-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+<!-- PROGRAMMA -->
+<section class="programma">
+    <div class="container">
+        <p class="section-tag">Il programma</p>
+        <h2>Cosa impari in una giornata</h2>
+        <div class="programma-grid">
+            <div class="programma-col mattina">
+                <h3>🌅 Mattina</h3>
+                <div class="programma-item">
+                    <div class="orario">10:00 – 10:30</div>
+                    <h4>Benvenuto e orientamento</h4>
+                    <p>Presentazioni, obiettivi della giornata, panoramica del settore sanitario privato.</p>
+                </div>
+                <div class="programma-item">
+                    <div class="orario">10:30 – 12:00</div>
+                    <h4>Il sistema sanitario italiano</h4>
+                    <p>Struttura SSN vs privato, figure professionali, normative essenziali.</p>
+                </div>
+                <div class="programma-item">
+                    <div class="orario">12:00 – 13:00</div>
+                    <h4>Comunicazione professionale</h4>
+                    <p>Gestione del paziente, telefonate, email, linguaggio medico base.</p>
+                </div>
+            </div>
+            <div class="programma-col pomeriggio">
+                <h3>🌆 Pomeriggio</h3>
+                <div class="programma-item">
+                    <div class="orario">14:00 – 15:30</div>
+                    <h4>Fatturazione e gestione agenda</h4>
+                    <p>Ricevute, fatture, software gestionali, appuntamenti e follow-up.</p>
+                </div>
+                <div class="programma-item">
+                    <div class="orario">15:30 – 16:30</div>
+                    <h4>Colloquio e posizionamento</h4>
+                    <p>Come presentarsi, CV per il settore sanitario, simulazione colloquio.</p>
+                </div>
+                <div class="programma-item">
+                    <div class="orario">16:30 – 18:00</div>
+                    <h4>Primo Soccorso e BLSD</h4>
+                    <p>Teoria e simulazione pratica su manichino. Docente medico certificato AHA.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        .programma-col h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            margin-bottom: 24px;
-            padding-bottom: 12px;
-        }
+<!-- BENEFICI -->
+<section class="benefici">
+    <div class="container">
+        <p class="section-tag" style="color:#D4AC0D;">Perché scegliere questo corso</p>
+        <h2>Non è un corso. È una svolta.</h2>
+        <div class="benefici-grid">
+            <div class="beneficio-box">
+                <h4>🎯 Formazione verticale</h4>
+                <p>Nessun contenuto generico. Ogni modulo è pensato per il front office sanitario, con casi reali e simulazioni.</p>
+            </div>
+            <div class="beneficio-box">
+                <h4>👩‍⚕️ Docente con 20+ anni di esperienza</h4>
+                <p>Ilaria ha lavorato nei migliori studi privati italiani e forma professioniste da anni con risultati concreti.</p>
+            </div>
+            <div class="beneficio-box">
+                <h4>🤝 Networking reale</h4>
+                <p>Entra in un gruppo di professioniste. Molte corsiste hanno trovato lavoro grazie alle connessioni create durante il corso.</p>
+            </div>
+            <div class="beneficio-box">
+                <h4>🏥 Primo soccorso incluso</h4>
+                <p>Modulo BLSD con simulazione su manichino, tenuto da medico istruttore certificato AHA. Fondamentale per lavorare in ambito sanitario.</p>
+            </div>
+            <div class="beneficio-box">
+                <h4>📄 Attestato di partecipazione</h4>
+                <p>Un documento ufficiale da aggiungere al tuo CV che certifica la tua formazione specialistica.</p>
+            </div>
+            <div class="beneficio-box">
+                <h4>💼 Sbocchi lavorativi concreti</h4>
+                <p>Studi medici, poliambulatori, cliniche private: il settore è in crescita e cerca figure formate come te.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-        .programma-col.mattina h3 {
-            color: #1A5276;
-            border-bottom: 3px solid #1A5276;
-        }
+<!-- BIO -->
+<section class="bio">
+    <div class="container">
+        <p class="section-tag">Chi insegna</p>
+        <h2>Ilaria Fioretti</h2>
+        <div class="bio-grid">
+            <div class="bio-foto">📷<br><br>Inserisci qui<br>la tua foto</div>
+            <div class="bio-testo">
+                <p>Ho iniziato da zero. Nessun corso, nessuna guida. Solo tanta voglia di fare bene in un settore che amavo ma che non capivo ancora fino in fondo.</p>
+                <p>Negli anni ho lavorato in studi medici, poliambulatori, cliniche private. Ho sbagliato, imparato, ricominciato. Ho vissuto il burnout. Ho affrontato una diagnosi di tumore che mi ha cambiato il modo di guardare il lavoro — e la vita.</p>
+                <p>Oggi formo le professioniste che voglio che ci siano negli studi medici. Quelle che sanno ascoltare, gestire, risolvere. Quelle che fanno la differenza per i pazienti e per i medici con cui lavorano.</p>
+                <p><strong>Oltre 40 professioniste formate. Tre edizioni sold out. Una community che cresce ogni giorno.</strong></p>
+            </div>
+        </div>
+    </div>
+</section>
 
-        .programma-col.pomeriggio h3 {
-            color: #D4AC0D;
-            border-bottom: 3px solid #D4AC0D;
-        }
+<!-- TESTIMONIANZE -->
+<section class="testimonianze">
+    <div class="container">
+        <p class="section-tag">Chi ha già partecipato</p>
+        <h2>Le loro parole</h2>
+        <div class="testi-grid">
+            <div class="testi-box">
+                <p>"Avevo 56 anni e pensavo fosse tardi per ricominciare. Ilaria mi ha dimostrato il contrario. Durante il corso stesso ho ricevuto due richieste di contatto da studi medici. Oggi lavoro in un poliambulatorio privato e non potrei essere più felice."</p>
+                <div class="testi-nome">Manuela, 56 anni — Corsista III edizione</div>
+            </div>
+            <div class="testi-box">
+                <p>"Sono entrata al corso senza sapere nulla del settore sanitario. Sono uscita con un attestato, una rete di contatti e — soprattutto — con la chiarezza su cosa volevo fare. Dopo due anni lavoro ancora nello stesso studio che mi ha assunta subito dopo."</p>
+                <div class="testi-nome">Sara — Assunta subito dopo il corso, lavora lì da 2 anni</div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        .programma-item {
-            margin-bottom: 24px;
-            padding-left: 16px;
-            border-left: 3px solid #F2F3F4;
-        }
+<!-- PREZZO -->
+<section class="prezzo">
+    <div class="container">
+        <p class="section-tag">Investimento</p>
+        <h2>Quanto vale la tua carriera?</h2>
 
-        .programma-item .orario {
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #D4AC0D;
-            text-transform: uppercase;
-        }
+        <!-- EARLY BIRD -->
+        <div style="background:#FEF9E7; border:2px solid #D4AC0D; border-radius:16px; padding:30px; max-width:560px; margin:30px auto 0; text-align:center;">
+            <p style="font-size:12px; letter-spacing:2px; font-weight:700; color:#D4AC0D; text-transform:uppercase;">⏰ Offerta Early Bird</p>
+            <p style="font-size:28px; font-weight:900; color:#1A5276; margin:8px 0;">697€ <span style="font-size:16px; font-weight:400; color:#999;">+ IVA</span></p>
+            <p style="font-size:14px; color:#666;">invece di 797€ — risparmi 100€</p>
+            <p style="font-size:13px; color:#E74C3C; font-weight:700; margin-top:8px;">Valida fino al [DATA EARLY BIRD]</p>
+        </div>
 
-        .programma-item h4 {
-            font-size: 16px;
-            font-weight: 700;
-            color: #1A5276;
-            margin: 4px 0;
-        }
+        <!-- SCONTO COPPIA -->
+        <div style="background:#EAF2FF; border:2px solid #1A5276; border-radius:16px; padding:30px; max-width:560px; margin:20px auto 0; text-align:center;">
+            <p style="font-size:12px; letter-spacing:2px; font-weight:700; color:#1A5276; text-transform:uppercase;">👯 Sconto Coppia</p>
+            <p style="font-size:28px; font-weight:900; color:#1A5276; margin:8px 0;">697€ <span style="font-size:16px; font-weight:400; color:#999;">+ IVA a persona</span></p>
+            <p style="font-size:14px; color:#666;">Iscriviti con un'amica — risparmiate entrambe 100€</p>
+        </div>
 
-        .programma-item p {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.6;
-        }
+        <!-- PREZZO STANDARD -->
+        <div class="prezzo-box">
+            <h3>Prezzo standard</h3>
+            <div class="prezzo-numero">797€</div>
+            <div class="prezzo-iva">+ IVA</div>
+            <ul class="prezzo-lista">
+                <li>✅ Giornata formativa completa (10:00–18:00)</li>
+                <li>✅ Materiale didattico incluso</li>
+                <li>✅ Modulo Primo Soccorso + BLSD con manichino</li>
+                <li>✅ Attestato di partecipazione</li>
+                <li>✅ Pranzo incluso</li>
+                <li>✅ Accesso alla community post-corso</li>
+                <li>✅ Possibilità di rateizzazione (2 rate)</li>
+            </ul>
+            <a href="#iscrizione" class="btn-primary" style="display:block; text-align:center; margin-top:10px;">
+                🎯 Prenota ora
+            </a>
+        </div>
+    </div>
+</section>
 
-        /* ===== BENEFICI ===== */
-        .benefici {
-            background: #1A5276;
-            color: white;
-        }
+<!-- ISCRIZIONE -->
+<section id="iscrizione" style="background:#F8F9FA; padding:80px 20px;">
+    <div class="container">
+        <div style="text-align:center; margin-bottom:40px;">
+            <p class="section-tag">Prenota il tuo posto</p>
+            <h2>Inizia il tuo percorso</h2>
+            <p style="font-size:17px; color:#555; max-width:600px; margin:16px auto 0;">
+                I posti sono limitati a <strong>20–25 partecipanti</strong>.<br>
+                Compila il modulo e riceverai conferma entro 24 ore.
+            </p>
+        </div>
 
-        .benefici h2 {
-            color: white;
-        }
+        <div style="background:#fff; border-radius:16px; padding:40px; max-width:560px; margin:0 auto; box-shadow:0 4px 24px rgba(0,0,0,0.10);">
+            <h3 style="color:#1A5276; font-size:1.4rem; margin-bottom:24px; text-align:center;">
+                📩 Prenota il tuo posto
+            </h3>
 
-        .benefici-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 24px;
-            margin-top: 40px;
-        }
+            <form action="https://formspree.io/f/mdardgeq" method="POST">
 
-        .beneficio-box {
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.15);
-            padding: 28px;
-            border-radius: 12px;
-        }
+                <div style="margin-bottom:16px;">
+                    <label style="display:block; font-weight:600; margin-bottom:6px; color:#1A5276;">Nome e Cognome *</label>
+                    <input type="text" name="nome" required placeholder="Es. Maria Rossi" class="form-input">
+                </div>
 
-        .beneficio-box h4 {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #D4AC0D;
-        }
+                <div style="margin-bottom:16px;">
+                    <label style="display:block; font-weight:600; margin-bottom:6px; color:#1A5276;">Email *</label>
+                    <input type="email" name="email" required placeholder="Es. maria@email.com" class="form-input">
+                </div>
 
-        .beneficio-box p {
-            font-size: 14px;
-            opacity: 0.85;
-            line-height: 1.6;
-        }
+                <div style="margin-bottom:16px;">
+                    <label style="display:block; font-weight:600; margin-bottom:6px; color:#1A5276;">Telefono *</label>
+                    <input type="tel" name="telefono" required placeholder="Es. 333 1234567" class="form-input">
+                </div>
 
-        /* ===== BIO ===== */
-        .bio {
-            background: white;
-        }
+                <div style="margin-bottom:16px;">
+                    <label style="display:block; font-weight:600; margin-bottom:6px; color:#1A5276;">Come vuoi pagare? *</label>
+                    <select name="pagamento" required class="form-input" style="background:#fff;">
+                        <option value="">-- Seleziona --</option>
+                        <option value="unica">Soluzione unica (797€ + IVA)</option>
+                        <option value="early_bird">Early Bird entro [DATA] (697€ + IVA)</option>
+                        <option value="coppia">Sconto coppia (697€ + IVA a persona)</option>
+                        <option value="rata">Rateizzato (2 rate)</option>
+                    </select>
+                </div>
 
-        .bio-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 60px;
-            align-items: start;
-            margin-top: 40px;
-        }
+                <div style="margin-bottom:12px; display:flex; align-items:flex-start; gap:10px;">
+                    <input type="checkbox" name="privacy" id="privacy" required style="margin-top:4px; width:18px; height:18px; cursor:pointer;">
+                    <label for="privacy" style="font-size:0.9rem; color:#444; line-height:1.5;">
+                        Ho letto e accetto la
+                        <a href="privacy.html" target="_blank" style="color:#D4AC0D; font-weight:600;">Privacy Policy</a> *
+                    </label>
+                </div>
 
-        @media (max-width: 768px) {
-            .bio-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+                <div style="margin-bottom:24px; display:flex; align-items:flex-start; gap:10px;">
+                    <input type="checkbox" name="termini" id="termini" required style="margin-top:4px; width:18px; height:18px; cursor:pointer;">
+                    <label for="termini" style="font-size:0.9rem; color:#444; line-height:1.5;">
+                        Ho letto e accetto i
+                        <a href="termini.html" target="_blank" style="color:#D4AC0D; font-weight:600;">Termini & Condizioni</a>
+                        inclusa la politica di rimborso *
+                    </label>
+                </div>
 
-        .bio-foto {
-            width: 100%;
-            border-radius: 16px;
-            background: #F2F3F4;
-            aspect-ratio: 3/4;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            color: #999;
-            text-align: center;
-            padding: 20px;
-        }
+                <button type="submit" style="width:100%; padding:16px; background:linear-gradient(135deg,#E74C3C,#C0392B); color:#fff; font-size:1.1rem; font-weight:700; border:none; border-radius:8px; cursor:pointer; letter-spacing:1px;">
+                    ✅ INVIA LA MIA ISCRIZIONE
+                </button>
 
-        .bio-testo p {
-            font-size: 17px;
-            line-height: 1.9;
-            margin-bottom: 20px;
-            color: #2C3E50;
-        }
+                <p style="text-align:center; font-size:0.85rem; color:#888; margin-top:12px;">
+                    Riceverai una email di conferma entro 24 ore
+                </p>
 
-        /* ===== TESTIMONIANZE ===== */
-        .testimonianze {
-            background: #F8F9FA;
-        }
+            </form>
+        </div>
+    </div>
+</section>
 
-        .testi-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
+<!-- FOOTER -->
+<footer class="footer">
+    <p>© 2026 Medical Front Office — Ilaria Fioretti</p>
+    <p style="margin-top:8px;">
+        <a href="privacy.html">Privacy Policy</a> &nbsp;|&nbsp;
+        <a href="termini.html">Termini & Condizioni</a>
+    </p>
+    <p style="margin-top:8px; font-size:12px; opacity:0.6;">P.IVA: [INSERISCI P.IVA] — Tolentino (MC)</p>
+</footer>
 
-        .testi-box {
-            background: white;
-            padding: 36px;
-            border-radius: 16px;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.08);
-            position: relative;
-        }
-
-        .testi-box::before {
-            content: '❝';
-            font-size: 60px;
-            color: #D4AC0D;
-            opacity: 0.4;
-            position: absolute;
-            top: 16px;
-            left: 24px;
-            line-height: 1;
-        }
-
-        .testi-box p {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #2C3E50;
-            margin-top: 30px;
-            font-style: italic;
-        }
-
-        .testi-nome {
-            margin-top: 24px;
-            font-weight: 700;
-            color: #1A5276;
-            font-size: 14px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        /* ===== PREZZO ===== */
-        .prezzo {
-            background: white;
-            text-align: center;
-        }
-
-        .prezzo-box {
-            max-width: 560px;
-            margin: 40px auto 0;
-            border: 2px solid #1A5276;
-            border-radius: 24px;
-            padding: 50px 40px;
-            box-shadow: 0 20px 60px rgba(26, 82, 118, 0.12);
-        }
-
-        .prezzo-box h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            color: #1A5276;
-            margin-bottom: 8px;
-        }
-
-        .prezzo-box .prezzo-numero {
-            font-size: 56px;
-            font-weight: 900;
-            color: #1A5276;
-            line-height: 1;
-            margin: 20px 0 4px;
-        }
-
-        .prezzo-box .prezzo-iva {
-            font-size: 14px;
-            color: #999;
-            margin-bottom: 30px;
-        }
-
-        .prezzo-lista {
-            list-style: none;
-            text-align: left;
-            margin: 30px 0;
-        }
-
-        .prezzo-lista li {
-            padding: 10px 0;
-            border-bottom: 1px solid #F2F3F4;
-            font-size: 15px;
-            color: #2C3E50;
-        }
-
-        .prezzo-lista li:last-child {
-            border-bottom: none;
-        }
-
-        .prezzo-warning {
-            background: #FEF9E7;
-            border: 1px solid #D4AC0D;
-            border-radius: 8px;
-            padding: 14px 20px;
-            font-size: 14px;
-            color: #7D6608;
-            margin: 24px 0;
-            font-weight: 600;
-        }
-
-        .prezzo-rata {
-            font-size: 13px;
-            color: #999;
-            margin-top: 16px;
-        }
-
-        /* ===== FAQ ===== */
-        .faq {
-            background: #F8F9FA;
-        }
-
-        .faq-item {
-            background: white;
-            border-radius: 12px;
-            margin-bottom: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .faq-domanda {
-            padding: 22px 28px;
-            font-weight: 700;
-            font-size: 16px;
-            color: #1A5276;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.2s;
-        }
-
-        .faq-domanda:hover {
-            background: #F8F9FA;
-        }
-
-        .faq-domanda .arrow {
-            font-size: 20px;
-            transition: transform 0.3s;
-            color: #D4AC0D;
-        }
-
-        .faq-risposta {
-            padding: 0 28px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.3s;
-            font-size: 15px;
-            color: #555;
-            line-height: 1.8;
-        }
-
-        .faq-risposta.aperta {
-            max-height: 300px;
-            padding: 0 28px 22px;
-        }
-
-        .faq-domanda.aperta .arrow {
-            transform: rotate(180deg);
-        }
-
-        /* ===== CTA FINALE ===== */
-        .cta-finale {
-            background: linear-gradient(135deg, #1A5276 0%, #154360 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .cta-finale h2 {
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        .cta-finale p {
-            font-size: 18px;
-            opacity: 0.85;
-            max-width: 500px;
-            margin: 0 auto 40px;
-        }
+</body>
+</html>
 
         /* ===== FOOTER ===== */
         footer {
