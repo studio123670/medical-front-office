@@ -390,10 +390,11 @@
     }
     .rate-options {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 16px;
+      max-width: 340px;
+      margin: 0 auto;
     }
-    @media(max-width:500px){ .rate-options { grid-template-columns: 1fr; } }
     .rate-option {
       background: white;
       border-radius: 12px;
@@ -797,12 +798,6 @@
       <h3>💳 Preferisci pagare a rate?</h3>
       <div class="rate-options">
         <div class="rate-option">
-          <div class="logo">🅿️</div>
-          <h4>PayPal — Paga in 3 rate</h4>
-          <p>3 rate senza interessi direttamente dal tuo account PayPal</p>
-          <a href="https://www.paypal.com/it/webapps/mpp/paypal-installments" target="_blank">Paga con PayPal</a>
-        </div>
-        <div class="rate-option">
           <div class="logo">⚡</div>
           <h4>Stripe — Pagamento rateale</h4>
           <p>Paga in più rate con carta di credito tramite Stripe</p>
@@ -810,7 +805,7 @@
         </div>
       </div>
       <p style="font-size:13px; color:#888; text-align:center; margin-top:16px;">
-        ℹ️ Per PayPal: seleziona "Paga in 3 rate" durante il checkout · Per Stripe: le opzioni rateali sono disponibili al checkout
+        ℹ️ Le opzioni di pagamento rateale, quando disponibili per la tua carta, vengono proposte da Stripe durante il checkout
       </p>
     </div>
 
@@ -877,7 +872,7 @@
       </div>
       <div class="faq-item">
         <h3>Posso pagare a rate?</h3>
-        <p>Sì! Puoi pagare in 3 rate senza interessi tramite PayPal oppure a rate tramite Stripe. Scegli l'opzione che preferisci nella sezione iscrizione.</p>
+        <p>Il pagamento avviene con carta tramite Stripe, che al checkout propone le opzioni di pagamento rateale disponibili per la tua carta. Trovi il pulsante nella sezione iscrizione: se hai dubbi sulle modalità di pagamento, scrivici prima di procedere.</p>
       </div>
       <div class="faq-item">
         <h3>Il pranzo è incluso?</h3>
